@@ -883,13 +883,13 @@ drawbar(Monitor *m) {
 			x = xx;
 			w = m->ww - xx;
 		}
+		if(showsystray && m == systraytomon(m)) {
+			x -= getsystraywidth();
+		}
 		drw_text(drw, x, 0, w, bh, stext, 0);
 	}
 	else
 		x = m->ww;
-	if(showsystray && m == systraytomon(m)) {
-		x -= getsystraywidth();
-	}
 	if((w = x - xx) > bh) {
 		x = xx;
 		if(m->sel) {
