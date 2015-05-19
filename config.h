@@ -74,6 +74,7 @@ static const char *lockxscreensavercmd[]  = { "xscreensaver-command", "-lock", N
 static const char *brightnessdowncmd[]  = { "xbacklight", "-dec", "10", NULL };
 static const char *brightnessupcmd[]  = { "xbacklight", "-inc", "10", NULL };
 static const char *konsolecmd[]  = { "konsole", NULL };
+static const char *printscreencmd[]  = { "ksnapshot", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -116,15 +117,16 @@ static Key keys[] = {
 	TAGKEYS(                        XK_F7,                      6)
 	TAGKEYS(                        XK_F8,                      7)
 	TAGKEYS(                        XK_F9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-/*	{ MODKEY,                       XK_w,      view_adjacent,  { .i = -1} },
-	{ MODKEY,                       XK_e,      view_adjacent,  { .i = +1} },*/
-	{ MODKEY,                       XK_w,   viewtoleft,     {0} },
-	{ MODKEY,                       XK_e,  viewtoright,    {0} },
-	{ MODKEY|ShiftMask,             XK_l,      spawn,          { .v = lockxscreensavercmd} },
-	{ MODKEY|ShiftMask,             XK_k, spawn,          {.v = konsolecmd } },
+	{ MODKEY|ShiftMask,             XK_q,       quit,           {0} },
+/*	{ MODKEY,                       XK_w,       view_adjacent,  { .i = -1} },
+	{ MODKEY,                       XK_e,       view_adjacent,  { .i = +1} },*/
+	{ MODKEY,                       XK_w,       viewtoleft,     {0} },
+	{ MODKEY,                       XK_e,       viewtoright,    {0} },
+	{ MODKEY|ShiftMask,             XK_l,       spawn,          {.v = lockxscreensavercmd} },
+	{ MODKEY|ShiftMask,             XK_k,       spawn,          {.v = konsolecmd } },
 	{ False,                        0x1008ff02, spawn,          {.v = brightnessupcmd} },
 	{ False,                        0x1008ff03, spawn,          {.v = brightnessdowncmd} },
+	{ False,                        XK_Print,   spawn,          {.v = printscreencmd} },
 };
 
 /* button definitions */
